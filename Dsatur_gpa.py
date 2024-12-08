@@ -109,6 +109,11 @@ def main():
             font-weight: bold;
             margin-top: 15px;
         }
+        .neighbor-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #4B0082; /* Indigo pour contraste */
+        }
         </style>
         """, unsafe_allow_html=True
     )
@@ -126,6 +131,7 @@ def main():
     for i in range(num_vertices):
         vertex = i + 1
         neighbors_options = [j+1 for j in range(num_vertices) if j+1 != vertex]
+        st.markdown(f'<div class="neighbor-title">Sélectionnez les voisins du sommet {vertex}</div>', unsafe_allow_html=True)
         selected_neighbors = st.multiselect(
             f"Sélectionnez les voisins du sommet {vertex}", 
             neighbors_options, 
